@@ -17,7 +17,7 @@ try
 }
 catch (Exception e)
 {
-    Console.WriteLine($"Invalid input format : {e}");
+    Console.WriteLine($"Invalid input format, {e}");
     return;
 }
 
@@ -25,18 +25,19 @@ for (int i = 1; i <= n; i++)
 {
     if (i % 3 == 0 && i % 5 == 0)
     {
-        Console.WriteLine("foobar");
+        Console.Write("foobar");
     }
     else if (i % 3 == 0)
     {
-        Console.WriteLine("foo");
+        Console.Write("foo");
     }
     else if (i % 5 == 0)
     {
-        Console.WriteLine("bar");
+        Console.Write("bar");
     }
     else
     {
-        Console.WriteLine(i);
+        Console.Write(i);
     }
+    Console.Write(", ");
 }
