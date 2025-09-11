@@ -12,6 +12,10 @@ public class Program
 		h.Name = "Mansion";
 		s.SharedOwned = 250_000L;
 
+        var g = Gender.Female;
+
+        Console.Write(g);
+
         Console.WriteLine(h.GetType());
 		
 		Console.WriteLine(s.Name + " " + s.SharedOwned);
@@ -28,6 +32,13 @@ public class Stock : Assets
     public long SharedOwned;
 }
 
-public class House : Assets {
-	public decimal Mortgage;
+public class House : Assets
+{
+    public decimal Mortgage;
+}
+
+public enum Gender
+{
+    Male,
+    Female
 }
