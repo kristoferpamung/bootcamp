@@ -6,7 +6,7 @@ public class Book
     public const int MaxTitleLength = 100;
     public const decimal DefaultPrice = 25.00M;
 
-    private string _isbn = "";
+    private string _isbn = string.Empty;
     private decimal _price;
 
     public string Title { get; set; }
