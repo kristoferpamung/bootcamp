@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Practices", "Practices", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day2-Explore-Syntax", "Practices\Day2-Explore-Syntax\Day2-Explore-Syntax.csproj", "{9374C5DD-7368-408B-A914-286F34EF924D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day3-Creating-Types", "Practices\Day3-Creating-Types\Day3-Creating-Types.csproj", "{2AAEB16B-0681-4D4F-B657-E19E27022559}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,8 +34,13 @@ Global
 		{9374C5DD-7368-408B-A914-286F34EF924D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9374C5DD-7368-408B-A914-286F34EF924D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9374C5DD-7368-408B-A914-286F34EF924D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AAEB16B-0681-4D4F-B657-E19E27022559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AAEB16B-0681-4D4F-B657-E19E27022559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AAEB16B-0681-4D4F-B657-E19E27022559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AAEB16B-0681-4D4F-B657-E19E27022559}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9374C5DD-7368-408B-A914-286F34EF924D} = {8C670827-9E95-498B-AD76-037499986890}
+		{2AAEB16B-0681-4D4F-B657-E19E27022559} = {8C670827-9E95-498B-AD76-037499986890}
 	EndGlobalSection
 EndGlobal

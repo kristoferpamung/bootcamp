@@ -1,0 +1,15 @@
+C:\Users\Kristofer\Documents\bootcamp\Practices\Day3-Creating-Types\bin\Debug\net8.0\Day3-Creating-Types.exe
+C:\Users\Kristofer\Documents\bootcamp\Practices\Day3-Creating-Types\bin\Debug\net8.0\Day3-Creating-Types.deps.json
+C:\Users\Kristofer\Documents\bootcamp\Practices\Day3-Creating-Types\bin\Debug\net8.0\Day3-Creating-Types.runtimeconfig.json
+C:\Users\Kristofer\Documents\bootcamp\Practices\Day3-Creating-Types\bin\Debug\net8.0\Day3-Creating-Types.dll
+C:\Users\Kristofer\Documents\bootcamp\Practices\Day3-Creating-Types\bin\Debug\net8.0\Day3-Creating-Types.pdb
+C:\Users\Kristofer\Documents\bootcamp\Practices\Day3-Creating-Types\obj\Debug\net8.0\Day3-Creating-Types.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kristofer\Documents\bootcamp\Practices\Day3-Creating-Types\obj\Debug\net8.0\Day3-Creating-Types.AssemblyInfoInputs.cache
+C:\Users\Kristofer\Documents\bootcamp\Practices\Day3-Creating-Types\obj\Debug\net8.0\Day3-Creating-Types.AssemblyInfo.cs
+C:\Users\Kristofer\Documents\bootcamp\Practices\Day3-Creating-Types\obj\Debug\net8.0\Day3-Creating-Types.csproj.CoreCompileInputs.cache
+C:\Users\Kristofer\Documents\bootcamp\Practices\Day3-Creating-Types\obj\Debug\net8.0\Day3-Creating-Types.sourcelink.json
+C:\Users\Kristofer\Documents\bootcamp\Practices\Day3-Creating-Types\obj\Debug\net8.0\Day3-Creating-Types.dll
+C:\Users\Kristofer\Documents\bootcamp\Practices\Day3-Creating-Types\obj\Debug\net8.0\refint\Day3-Creating-Types.dll
+C:\Users\Kristofer\Documents\bootcamp\Practices\Day3-Creating-Types\obj\Debug\net8.0\Day3-Creating-Types.pdb
+C:\Users\Kristofer\Documents\bootcamp\Practices\Day3-Creating-Types\obj\Debug\net8.0\Day3-Creating-Types.genruntimeconfig.cache
+C:\Users\Kristofer\Documents\bootcamp\Practices\Day3-Creating-Types\obj\Debug\net8.0\ref\Day3-Creating-Types.dll
