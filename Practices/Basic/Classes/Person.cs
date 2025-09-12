@@ -56,4 +56,11 @@ class Person
             return _hobbies[range];
         }
     }
+
+    // Deconstructor
+    public void Deconstructor(out string name, out int age)
+    {
+        name = Name;
+        age = this.age;
+    }
 }

@@ -12,6 +12,14 @@ Console.WriteLine($"Nama: {p2.Name}, Age: {p2.age} tahun, Hair Color: {p2.HairCo
 Console.WriteLine("====== End Constructor ======\n");
 /* ----------- End Constructor -----------*/
 
+/* ----------- Deconstructor -----------*/
+Console.WriteLine("====== Deconstructor ======");
+var rect = new Rectangle(3, 4);
+(float width, float height) = rect; // Deconstruction call 
+Console.WriteLine(width + " " + height);
+Console.WriteLine("====== End Deconstructor ======\n");
+/* ----------- EndDeconstructor -----------*/
+
 /* ----------- Indexer -----------*/
 Person p3 = new(name: "Sylvia Agnes", age: 27, ["Sepak Bola", "Menggambar", "Menyanyi"]);
 Console.WriteLine("====== Indexer ======");
