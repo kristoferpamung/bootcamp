@@ -42,6 +42,14 @@ if (int.TryParse(numberString, out int n))
         {
             Console.Write(i);
         }
-        Console.Write(", ");
+        if (i == n)
+        {
+            Console.Write(".");
+        }
+        else
+        {
+            Console.Write(", ");
+        }
+        
     }
 }
