@@ -15,11 +15,11 @@ public class PriceChangedEventArgs : EventArgs
 
 public class Stock
 {
-    string symbol;
+    string symbol = "";
     decimal price;
 
     public Stock(string symbol) => this.symbol = symbol;
-    public event EventHandler<PriceChangedEventArgs> PriceChanged;
+    public event EventHandler<PriceChangedEventArgs>? PriceChanged;
 
     protected virtual void OnPriceChanged(PriceChangedEventArgs e)
     {
@@ -45,7 +45,7 @@ public class Stock
 /* Learning by ChatGPT */
 public class Processor
 {
-    public event EventHandler OnDataProcessed;
+    public event EventHandler? OnDataProcessed;
 
     public void Process()
     {
@@ -56,12 +56,12 @@ public class Processor
 
 public class MyEventArgs : EventArgs
 {
-    public string Message { get; set; }
+    public string? Message { get; set; }
 }
 
 public class Notifier
 {
-    public event EventHandler<MyEventArgs> OnNotify;
+    public event EventHandler<MyEventArgs>? OnNotify;
 
     public void Notify(string message)
     {

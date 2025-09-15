@@ -1,5 +1,6 @@
 ﻿using BelajarDelegate;
 using BelajarEventHandler;
+using TryCatchKu;
 
 Transformer t = Square;
 Console.WriteLine("===== Square ===");
@@ -116,7 +117,7 @@ stock.Price = 27.10M;
 stock.PriceChanged += stock_PriceChanged;
 stock.Price = 31.59M;
 
-void stock_PriceChanged(object sender, PriceChangedEventArgs e)
+void stock_PriceChanged(object? sender, PriceChangedEventArgs e)
 {
     if ((e.NewPrice - e.LastPrice) / e.LastPrice > 0.1M)
     {
@@ -137,3 +138,68 @@ proc.Process();
 Notifier n = new();
 n.OnNotify += (s, e) => Console.WriteLine("Pesan: " + e.Message);
 n.Notify("Hello Dunia");
+
+
+Console.WriteLine("\n===== Try Catch =====");
+TryCatch tc = new();
+try
+{
+    int y = tc.Calc(2);
+    Console.WriteLine(y);
+}
+catch (DivideByZeroException de)
+{
+    Console.WriteLine("Message: " + de.Message);
+}
+finally
+{
+    Console.WriteLine("Ini tetap dieksekusi");
+}
+
+try
+{
+    int x = int.Parse(null!);
+    Console.WriteLine(x);
+}
+catch (FormatException fe)
+{
+    Console.WriteLine("Error: " + fe.Message);
+}
+catch (Exception e)
+{
+    Console.WriteLine("Error Null: " + e.Message);
+}
+finally
+{
+    Console.WriteLine("Ini tetap dieksekusi");
+}
+
+/* Iterator */
+/* Collection Initializers */
+var list = new List<int> { 1, 2, 3 };
+/* Compailer akan mengeksekusi */
+List<int> listEksekusi = new List<int>();
+listEksekusi.Add(1);
+listEksekusi.Add(2);
+listEksekusi.Add(3);
+
+/*foreach adalah bagian dari enumerator dan iterator */
+foreach (int i in listEksekusi)
+{
+    Console.Write(i + ", ");
+}
+
+/*key-value pair dictionary */
+var dic = new Dictionary<int, string>()
+{
+    {1, "One"},
+    {2, "Two"},
+    {3, "Three"}
+};
+/*indexer pair dictionary */
+var dicIndexer = new Dictionary<int, string>()
+{
+    [1] = "one",
+    [2] = "two",
+    [3] = "three"
+};
