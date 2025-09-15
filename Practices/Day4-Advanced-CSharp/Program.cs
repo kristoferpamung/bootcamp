@@ -1,4 +1,7 @@
-﻿using BelajarDelegate;
+﻿using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using BelajarDelegate;
 using BelajarEventHandler;
 using TryCatchKu;
 
@@ -203,3 +206,42 @@ var dicIndexer = new Dictionary<int, string>()
     [2] = "two",
     [3] = "three"
 };
+
+/* Nullable */
+string? s = null;
+int? u = null;
+
+Console.WriteLine(s == null);
+Console.WriteLine(u == null);
+
+int? a = 5;
+int? b = 10;
+bool c = a < b;
+Console.WriteLine(c);
+
+/* Operator Lifting */
+bool d = (a.HasValue && b.HasValue) ? (a.Value < b.Value) : false;
+Console.WriteLine(c);
+
+StringBuilder? sb = null;
+int length = sb?.ToString().Length ?? 0;
+Console.WriteLine(length);
+
+/* IEnumerable */
+IEnumerable<int> angka = new List<int> { 1, 2, 3, 4, 5 };
+
+static IEnumerable<int> getOddNumber()
+{
+    for (int i = 0; i <= 10; i++)
+    {
+        if (i % 2 == 0)
+        {
+            yield return i;
+        }
+    }
+}
+
+foreach (var number in getOddNumber())
+{
+    Console.WriteLine(number);
+}
