@@ -1,4 +1,5 @@
 ﻿using BelajarDelegate;
+using BelajarEventHandler;
 
 Transformer t = Square;
 Console.WriteLine("===== Square ===");
@@ -106,3 +107,33 @@ foreach (int i in values)
 {
     Console.WriteLine(i + " Func");
 }
+
+
+Console.WriteLine("\n===== Event Handler =====");
+Stock stock = new("THPW");
+stock.Price = 27.10M;
+
+stock.PriceChanged += stock_PriceChanged;
+stock.Price = 31.59M;
+
+void stock_PriceChanged(object sender, PriceChangedEventArgs e)
+{
+    if ((e.NewPrice - e.LastPrice) / e.LastPrice > 0.1M)
+    {
+        Console.WriteLine("Alert, 10% stok price increase!");
+    }
+}
+
+
+/* Event Handler dari ChatGPT */
+Processor proc = new();
+proc.OnDataProcessed += (sender, e) =>
+{
+    Console.WriteLine("Data selesai diproses");
+};
+
+proc.Process();
+
+Notifier n = new();
+n.OnNotify += (s, e) => Console.WriteLine("Pesan: " + e.Message);
+n.Notify("Hello Dunia");
