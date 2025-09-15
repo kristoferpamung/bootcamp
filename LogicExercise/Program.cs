@@ -1,5 +1,4 @@
 ﻿
-int n;
 string? numberString;
 
 Console.Write("input n number: ");
@@ -11,33 +10,39 @@ if (numberString == null || numberString == "")
     return;
 }
 
-try
+if (int.TryParse(numberString, out int n))
 {
-    n = int.Parse(numberString);
-}
-catch (Exception e)
-{
-    Console.WriteLine($"Invalid input format, {e}");
-    return;
-}
-
-for (int i = 1; i <= n; i++)
-{
-    if (i % 3 == 0 && i % 5 == 0)
+    for (int i = 1; i <= n; i++)
     {
-        Console.Write("foobar");
+        if (i % 3 == 0 && i % 5 == 0 && i % 7 == 0)
+        {
+            Console.Write("foobarjazz");
+        }
+        else if (i % 3 == 0 && i % 5 == 0) {
+            Console.Write("foobar");
+        }
+        else if (i % 3 == 0 && i % 7 == 0) {
+            Console.Write("foojazz");
+        }
+        else if (i % 5 == 0 && i % 7 == 0) {
+            Console.Write("barjazz");
+        }
+        else if (i % 3 == 0)
+        {
+            Console.Write("foo");
+        }
+        else if (i % 5 == 0)
+        {
+            Console.Write("bar");
+        }
+        else if (i % 7 == 0)
+        {
+            Console.Write("jazz");
+        }
+        else
+        {
+            Console.Write(i);
+        }
+        Console.Write(", ");
     }
-    else if (i % 3 == 0)
-    {
-        Console.Write("foo");
-    }
-    else if (i % 5 == 0)
-    {
-        Console.Write("bar");
-    }
-    else
-    {
-        Console.Write(i);
-    }
-    Console.Write(", ");
 }
