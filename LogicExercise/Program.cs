@@ -6,7 +6,6 @@ numberString = Console.ReadLine();
 
 if (numberString == null || numberString == "")
 {
-    Console.WriteLine("Invalid input format");
     return;
 }
 
