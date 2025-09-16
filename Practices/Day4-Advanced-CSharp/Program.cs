@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
+﻿
 using System.Text;
 using BelajarDelegate;
 using BelajarEventHandler;
@@ -106,7 +105,7 @@ int LengthOfString(string name)
 }
 
 /* Menggunakan Func<TArgs, TResult> */
-Util2.Transform<int>(values, Cube);
+Util2.Transform(values, Cube);
 foreach (int i in values)
 {
     Console.WriteLine(i + " Func");
