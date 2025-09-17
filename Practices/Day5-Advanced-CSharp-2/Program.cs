@@ -59,6 +59,9 @@ void stock_PriceChanged(object sender, PriceChangedEventArgs e) // Subscriber me
 Note B = new Note(2);
 Note CSHarp = B + 2;
 CSHarp = CSHarp + 2;
+
+Console.WriteLine("=== Operator Overloading ===");
+Console.WriteLine(CSHarp.value);
 List<string> nameList = new List<string>
 {
     "Joko",
