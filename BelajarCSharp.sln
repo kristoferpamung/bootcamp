@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day5-Advanced-CSharp-2", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day5-Framework-Fundamental", "Practices\Day5-Framework-Fundamental\Day5-Framework-Fundamental.csproj", "{87053427-9822-4215-A9E8-4E4E332EAA43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day7-Domino-Class-Diagram", "Practices\Day7-Domino-Class-Diagram\Day7-Domino-Class-Diagram.csproj", "{5E34FC50-1BEA-4E01-B2CD-5490229C34AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{87053427-9822-4215-A9E8-4E4E332EAA43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87053427-9822-4215-A9E8-4E4E332EAA43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87053427-9822-4215-A9E8-4E4E332EAA43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E34FC50-1BEA-4E01-B2CD-5490229C34AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E34FC50-1BEA-4E01-B2CD-5490229C34AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E34FC50-1BEA-4E01-B2CD-5490229C34AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E34FC50-1BEA-4E01-B2CD-5490229C34AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9374C5DD-7368-408B-A914-286F34EF924D} = {8C670827-9E95-498B-AD76-037499986890}
@@ -80,5 +86,6 @@ Global
 		{CBB470C3-0ADB-40F9-9913-1F791C382DCF} = {8C670827-9E95-498B-AD76-037499986890}
 		{963F3AAF-7ECE-4342-8FDB-94CAAE530A9A} = {8C670827-9E95-498B-AD76-037499986890}
 		{87053427-9822-4215-A9E8-4E4E332EAA43} = {8C670827-9E95-498B-AD76-037499986890}
+		{5E34FC50-1BEA-4E01-B2CD-5490229C34AD} = {8C670827-9E95-498B-AD76-037499986890}
 	EndGlobalSection
 EndGlobal

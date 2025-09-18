@@ -1,0 +1,36 @@
+---
+title: Domino Boardgame
+---
+
+classDiagram
+    class Card {
+        +byte numberTop;
+        +byte numberBottom;
+        Card(byte numberTop, byte numberBottom)
+    }
+
+    class Player {
+        +string name;
+        +int score;
+        +List<Card> cardsInHand;
+        +bool isTurn;
+        Player(string name)
+        UpdateScore(int score) : void
+        AddCard(Card card) : void
+        PlayCard(Card card, Enum position) : void
+        CalculatePossibleMove(): void
+        HasWon()
+    }
+
+    class Game {
+        +List<Player> players;
+        +List<Card> cards;
+        +List<Card> board;
+        +List<Card> boneyard;
+        +int turn;
+        Game(Player player1, Player player2)
+        Game(Player player1, Player player2, Player player3, Player player4)
+        SendCardToPlayer(Player player) : void
+        ChangeTurn() : void
+        ShuffleCard() : void
+    }
