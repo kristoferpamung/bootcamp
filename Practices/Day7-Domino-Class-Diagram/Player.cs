@@ -2,51 +2,21 @@ using Classes;
 
 class Player
 {
-    private string? _name;
-    public int _points;
-    readonly List<Card> _cards = [];
+    public string? Name { set; get; }
+    public int Score { set; get; }
+    public List<Domino> Hand = [];
 
-    public string? Name
-    {
-        set
-        {
-            _name = value;
-        }
-        get
-        {
-            return _name;
-        }
-    }
-
-    public int Points
-    {
-        get
-        {
-            return _points;
-        }
-    }
     public Player(string name)
     {
         Name = name;
     }
-
-    public void AddScore(int point)
+    public void Draw(Domino newDomino)
     {
-        _points += point;
+        Hand.Add(newDomino);
     }
 
-    public void AddCard(Card card)
+    public void TakeDomino(List<Domino> dominos)
     {
-        _cards.Add(card);
-    }
-
-    public void RemoveCard(Card card)
-    {
-        _cards.Add(card);
-    }
-
-    public void RandomIndex()
-    {
-        
+        Hand = dominos;
     }
 }
