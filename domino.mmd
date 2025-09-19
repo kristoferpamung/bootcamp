@@ -30,12 +30,16 @@ classDiagram
         <<Interface>>
         +string Name
         +int Score
+        +PlaceDomino(IDomino domino)
+        +TakeDomino(IDomino domino)
     }
 
     class Player {
         +string Name
         +int Score
         +Player(string name)
+        +PlaceDomino(IDomino domino)
+        +TakeDomino(IDomino domino)
     }
 
     class IBoard {
