@@ -3,34 +3,53 @@ title: Domino Boardgame
 ---
 
 classDiagram
-    class Card {
-        +byte numberTop;
-        +byte numberBottom;
-        Card(byte numberTop, byte numberBottom)
+    IDomino <|-- Domino
+    IDeck <|-- Deck
+    IPlayer <|-- Player
+    IBoard <|-- Board
+
+    class IDomino {
+        <<Interface>>
+        +byte PipLeft
+        +byte PipRight
+    }
+    class Domino {
+        +byte NumberTop
+        +byte NumberBottom
+        +Domino(byte numberTop, byte numberBottom)
+    }
+
+    class IDeck {
+        <<Interface>>
+        +List~Domino~ Dominos
+    }
+    class Deck {
+        +List~Domino~ Dominos
+    }
+    class IPlayer {
+        <<Interface>>
+        +string Name
+        +int Score
     }
 
     class Player {
-        +string name;
-        +int score;
-        +List<Card> cardsInHand;
-        +bool isTurn;
-        Player(string name)
-        UpdateScore(int score) : void
-        AddCard(Card card) : void
-        PlayCard(Card card, Enum position) : void
-        CalculatePossibleMove(): void
-        HasWon()
+        +string Name
+        +int Score
+        +Player(string name)
+    }
+
+    class IBoard {
+        <<Interface>>
+        +List~Domino~ Dominos
+    }
+    class Board {
+        +List~Domino~ dominos
     }
 
     class Game {
-        +List<Player> players;
-        +List<Card> cards;
-        +List<Card> board;
-        +List<Card> boneyard;
-        +int turn;
-        Game(Player player1, Player player2)
-        Game(Player player1, Player player2, Player player3, Player player4)
-        SendCardToPlayer(Player player) : void
-        ChangeTurn() : void
-        ShuffleCard() : void
+        -List~IPlayer~ players
+        -IBoard _board
+        -IDeck _deck
+        -int CurrentTurnIndex
+        +Game(List~IPlayer~ players, IBoard board, IDeck deck)
     }
