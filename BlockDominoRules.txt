@@ -1,0 +1,12 @@
+Peraturan Game Block Domino: 
+1. Setiap pemain mendapatkan 7 Domino Tile acak pada awal permainan. Sisanya akan dijadikan Boneyard() yang tidak dapat diambil/draw player. Jika game diisi 4 player maka tidak ada boneyard.
+2. Giliran pertama ditentukan melalui undian, pada babak selanjutnya giliran pertama akan dimainkan player sebelahnya.
+3. Giliran pertama boleh menaruh Domino Tile apa saja.
+4. Domino Tile yang bertipe double tidak menambah cabang. Domino Tile setelahnya akan tetap diletakan pada Left dan Right barisan Tile yang di board.
+5. Jika Player tidak ada Domino Tile yang cocok dengan OpenEnds/Ujung maka player tersebut akan di skip ke player selanjutnya.
+6. Round berakhir jika sudah ada player yang menghabiskan Domino Tile miliknya atau semua player ke blok.
+7. Pemenangnya yaitu player yang dapat menghabiskan Domino Tile miliknya. atau memiliki jumlah pips/titik paling kecil.
+8. Skor player ditentukan pada jumlah pips/titik pada musuh, dan dikurangi dengan jumlah pips miliknya jika semua player ke blok.
+9. Skor akan ditambahkan kepada player yang menang round tersebut.
+10. Draw jika terdapat 2 player dengan jumlah dots terkecil yang sama. Tidak ada penambahan point pada player manapun.
+11. Player dinyatakan menang jika pointnya sudah mencapai 100 atau lebih.

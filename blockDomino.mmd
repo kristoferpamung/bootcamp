@@ -1,0 +1,109 @@
+classDiagram
+    IDominoTile <|-- DominoTile
+    IPlayer <|-- Player
+    IDeck <|-- Deck
+    IBoard <|-- Board
+    IGame <|-- Game
+
+    Player "1" --> "1..*" DominoTile
+    Deck "1" --> "1..*" DominoTile
+    Board "1" --> "1..*" DominoTile
+    Game "1" --> "1..*" Player
+    Player --> Side
+
+    class IDominoTile {
+        <<Interface>>
+        +byte PipLeft
+        +byte PipRight
+        +bool IsDouble
+    }
+    class DominoTile {
+        +byte PipLeft
+        +byte PipRight
+        +bool IsDouble
+        +DominoTile(byte PipLeft, byte PipRight)
+    }
+
+    class IPlayer {
+        <<Interface>>
+        +string Name
+        +int Score
+        +List~IDominoTile~ Hand
+        +PlayDominoTile(IDominoTile dominoTile) : bool
+    }
+
+    class Player {
+        +string Name
+        +int Score
+        +List~IDominoTile~ Hand
+        +Player(string name)
+        +PlayDominoTile(IDominoTile dominoTile) : bool
+    }
+
+    class IDeck {
+        <<Interface>>
+        +List~IDominoTile~ DominoTiles
+    }
+    class Deck {
+        +List~IDominoTile~ DominoTiles
+    }
+
+    class IBoard {
+        <<Interface>>
+        +List~IDominoTile~ DominoTiles
+    }
+    class Board {
+        +List~IDominoTile~ DominoTiles
+    }
+
+    class IGame {
+        <<Interface>>
+        -List~IPlayer~ _players
+        -IDeck _deck
+        -IBoard _board
+        -int _currentTurn
+        +event GameEvents;
+        +StartGame() : void
+        +PlayDominoTile(IPlayer player) : bool
+        +NextTurn() : void
+        +RoundOver() : void
+        +NextRound() : void
+        +GameOver() : IPlayer
+        +GameDraw() : void
+        +AddPointToPlayer(IPlayer player) : void
+        -Shuffle() : void
+        -GetOpenEnds() : int[]
+        -CalculateScore() : void
+        +OnGameOver(object sender, EventArgs e) : void
+        +HandleGameStart(object sender, EventArgs e) : void
+    }
+    
+    class Game {
+        -List~IPlayer~ _players
+        -IDeck _deck
+        -IBoard _board
+        -int _currentTurn
+        -int _gameScore
+        +event GameEvents;
+        +Game(List~IPlayer~ players, IDeck deck, IBoard board)
+        +StartGame() : void
+        +Shuffle() : void
+        +FirstTurn() : void
+        +PlayDominoTile(IPlayer player, Side side) : bool
+        +NextTurn() : void
+        +RoundOver() : void
+        +NextRound() : void
+        +GameOver() : IPlayer
+        +RoundDraw() : void
+        +AddPointToPlayer(IPlayer player) : void
+        -GetOpenEnds() : int[]
+        -CalculateScore() : void
+        +HandleGameOver(object sender, EventArgs e) : void
+        +HandleGameStart(object sender, EventArgs e) : void
+    }
+
+    class Side {
+        <<Enum>>
+        LEFT
+        RIGHT
+    }
