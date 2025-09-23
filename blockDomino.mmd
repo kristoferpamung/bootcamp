@@ -1,42 +1,47 @@
+---
+title: Block Domino
+---
 classDiagram
     IDominoTile <|-- DominoTile
     IPlayer <|-- Player
     IDeck <|-- Deck
     IBoard <|-- Board
-    IGame <|-- Game
 
-    Player "1" --o "0..*" DominoTile
-    Deck "1" --* "0..*" DominoTile
-    Board "1" --o "0..*" DominoTile
-    Game "1" --o "2..4*" Player
-    Game "1" --* "1" Board
-    Game "1" --* "1" Deck
+    IPlayer "1" --o "0..*" DominoTile
+    IDeck "1" --* "0..*" DominoTile
+    IBoard "1" --o "0..*" DominoTile
+    Game "1" --o "2..4*" IPlayer
+    Game "1" --* "1" IBoard
+    Game "1" --* "1" IDeck
     Game ..> Side
+    IDominoTile ..> Orientation
 
     class IDominoTile {
         <<Interface>>
         +byte PipLeft
         +byte PipRight
         +bool IsDouble
+        +Orientation Orientation
     }
     class DominoTile {
         +byte PipLeft
         +byte PipRight
         +bool IsDouble
+        +Orientation Orientation
         +DominoTile(byte PipLeft, byte PipRight)
     }
 
     class IPlayer {
         <<Interface>>
         +string Name
-        +int Score
+        +byte Score
         +List~IDominoTile~ Hand
         +PlayDominoTile(IDominoTile dominoTile) : bool
     }
 
     class Player {
         +string Name
-        +int Score
+        +byte Score
         +List~IDominoTile~ Hand
         +Player(string name)
         +PlayDominoTile(IDominoTile dominoTile) : bool
@@ -57,58 +62,41 @@ classDiagram
     class Board {
         +List~IDominoTile~ DominoTiles
     }
-
-    class IGame {
-        <<Interface>>
-        +SetupDeck() : void
-        +StartGame() : void
-        +Shuffle() : void
-        +DisplayBoard(): void
-        +FirstTurn() : void
-        +PlayDominoTile(IPlayer player, IDominoTile DominoTile, Side side) : bool
-        +NextTurn() : void
-        +IsRoundOver() : bool
-        +NextRound() : void
-        +IsRoundDraw() : bool
-        +GameOver() : IPlayer
-        -IsDominoTailValid(IDominoTile DominoTile, int[] openEnds) : bool
-        -CheckDominoTailCanPlay(IPlayer player, int[] openEnds) : bool
-        -GetOpenEnds() : int[]
-        -CalculateScore() : void
-        -AddPointToPlayer(IPlayer player) : void
-        +HandleGameOver(object sender, EventArgs e) : void
-        +HandleGameStart(object sender, EventArgs e) : void
-    }
     
     class Game {
         -List~IPlayer~ _players
         -IDeck _deck
         -IBoard _board
-        -int _currentTurn
-        +event EventHandler GameEvents;
+        -byte _currentTurn
+        +Action~IPlayer~ OnGameOver;
         +Game(List~IPlayer~ players, IDeck deck, IBoard board)
         +SetupDeck() : void
         +StartGame() : void
-        +Shuffle() : void
+        +ShuffleDeck() : void
+        +AddDominoTileToHandPlayer(IPlayer player, List<IDomino> dominos) : void
         +DisplayBoard(): void
         +FirstTurn() : void
+        +CheckPlayableDominoPlayerHand(IPlayer player, byte[] openEnds) : void
         +PlayDominoTile(IPlayer player, IDominoTile DominoTile, Side side) : bool
         +NextTurn() : void
         +IsRoundOver() : bool
         +NextRound() : void
         +IsRoundDraw() : bool
         +GameOver() : IPlayer
-        -IsDominoTailValid(IDominoTile DominoTile, int[] openEnds) : bool
-        -CheckDominoTailCanPlay(IPlayer player, int[] openEnds) : bool
-        -GetOpenEnds() : int[]
+        +FlipDominoTile(IDominoTile dominoTile) : IDominoTile
+        +GetOpenEnds() : byte[]
+        -IsDominoTileValid(IDominoTile DominoTile, byte[] openEnds) : bool
         -CalculateScore() : void
         -AddPointToPlayer(IPlayer player) : void
-        +HandleGameOver(object sender, EventArgs e) : void
-        +HandleGameStart(object sender, EventArgs e) : void
     }
 
     class Side {
         <<Enum>>
         LEFT
         RIGHT
+    }
+    class Orientation {
+        <<Enum>>
+        HORIZONTAL
+        VERTICAL
     }

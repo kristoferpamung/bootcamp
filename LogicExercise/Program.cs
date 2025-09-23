@@ -17,18 +17,25 @@ if (int.TryParse(numberString, out int n))
         {
             Console.Write("foobarjazz");
         }
-        else if (i % 3 == 0 && i % 5 == 0) {
+        else if (i % 3 == 0 && i % 5 == 0)
+        {
             Console.Write("foobar");
         }
-        else if (i % 3 == 0 && i % 7 == 0) {
+        else if (i % 3 == 0 && i % 7 == 0)
+        {
             Console.Write("foojazz");
         }
-        else if (i % 5 == 0 && i % 7 == 0) {
+        else if (i % 5 == 0 && i % 7 == 0)
+        {
             Console.Write("barjazz");
         }
         else if (i % 3 == 0)
         {
             Console.Write("foo");
+        }
+        else if (i % 4 == 0)
+        {
+            Console.Write("baz");
         }
         else if (i % 5 == 0)
         {
@@ -37,6 +44,10 @@ if (int.TryParse(numberString, out int n))
         else if (i % 7 == 0)
         {
             Console.Write("jazz");
+        }
+        else if (i % 9 == 0)
+        {
+            Console.Write("huzz");
         }
         else
         {
@@ -49,7 +60,6 @@ if (int.TryParse(numberString, out int n))
         else
         {
             Console.Write(", ");
-        }
-        
+        }   
     }
 }
