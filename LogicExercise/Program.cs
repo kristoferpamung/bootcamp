@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 string? numberString;
 
@@ -50,6 +50,10 @@ if (int.TryParse(numberString, out int n))
             outputString.Append('.');
         }
     }
+}
+else
+{
+    Console.WriteLine("Input must be number");
 }
 
 Console.WriteLine(outputString);
