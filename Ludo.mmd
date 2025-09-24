@@ -1,0 +1,177 @@
+---
+title : Ludo Game Maker
+---
+classDiagram
+    GameController *-- IPlayer
+    GameController *-- IBoard
+    GameController *-- IDice
+    GameController *-- ISquare
+    GameController ..> CollisionResult
+    GameController --> TurnResult
+    GameController ..> ActionType
+    Board ..|> IBoard
+    Board *-- Square
+    Square --> Position
+    Square --> ColorState
+    Square *-- IPiece
+    Square ..|> ISquare
+    Player ..|> IPlayer
+    IPlayer --> ColorState
+    IPlayer *-- IPiece
+    Piece ..|> IPiece
+    IPiece --> PieceState
+    IPiece --> Position
+    IPiece --> ColorState
+    Dice ..|> IDice
+    IPlayer --> PlayerStatus
+    Player --> PlayerStatus
+
+    class GameController {
+	    +List~IPlayer~ players
+	    +IBoard board
+	    +IDice dice
+	    +IPlayer currentPlayer
+	    +List~IArea~ homeAreas
+	    +List~IArea~ goalPaths
+	    +Queue~IPlayer~ turnOrder
+	    +TurnResult TurnResult
+        +InitializeBoard() void
+	    +StartGame() void
+	    +EndGame() void
+	    +NextTurn() TurnResult
+	    +ResetGame() void
+	    +RollDice() int
+	    +HandleSixRule(player: IPlayer) void
+	    +CheckThreeSixesRule(player: IPlayer) bool
+	    +GetCurrentPlayer() : IPlayer
+	    +AdvanceTurn() : IPlayer
+	    +SkipPlayer(player: IPlayer) void
+	    +StartTurn(player: IPlayer) void
+	    +EndTurn(player: IPlayer) TurnResult
+	    +MovePiece(piece: IPiece, steps: int) TurnResult
+	    +ForceMove(piece: IPiece, square: IBoard) TurnResult
+	    +TryEnterBoard(piece: IPiece, diceResult: int) : bool
+	    +GetNextPosition(piece: IPiece, steps: int)(int x, int y)
+	    +CheckCollision(piece: IPiece) CollisionResult
+	    +IsGoalComplete(player: IPlayer) bool
+	    +HandleCapture(piece: IPiece, target: IPiece) void
+	    +HandleArrow(piece: IPiece) void
+	    +PromotePieceToGoal(piece: IPiece) void
+	    +CheckAndDeclareWinner() : IPlayer?
+        +ActionDelegate : delegate void(IAction action)
+        +ExecuteAction(action: IAction) void
+    }
+    class IBoard{
+        +Square[,] Grid
+        +List~Area~ HomeAreas
+        +List~Area~ GoalAreas
+        +GetNextSquare(piece: Piece, steps: int) Square
+        +GetSquareByPosition(x:int, y:int): Square
+    }
+    class Board {
+	    +Square[,] grid
+        +List<Square> homeAreas
+        +List<Square> goalPaths
+        +GetSquare(x:int, y:int) : Square
+        +GetNextSquare(piece: IPiece, steps: int) : Square
+        +GetHomeArea(player: IPlayer) : List<Square>
+        +GetGoalPath(player: IPlayer) : List<Square>
+    }
+    class Square {
+	    +Position position : readonly
+	    +bool isSafeZone : readonly
+	    +bool isArrowEntry : readonly
+	    +ColorState color : readonly
+	    +List pieces
+    }
+    class Position {
+	    +int X
+	    +int Y
+	    +int PathIndex
+    }
+    class IPiece {
+	    +ColorState Color
+	    +PieceState State
+	    +Position Position
+    }
+    class ISquare {
+	    +Position position
+	    +bool isSafeZone
+	    +bool isArrowEntry
+	    +ColorState color
+	    +List~Piece~ pieces
+    }
+    class IPlayer {
+        <<interface>>
+        +string name : readonly
+        +ColorState color : readonly
+        +int consecutiveSixes : readonly
+        +List<IPiece> pieces
+        +PlayerStatus status
+    }
+    class Player {
+	    +string name : readonly
+        +ColorState color : readonly
+        +int consecutiveSixes : readonly
+        +List<IPiece> pieces
+        +PlayerStatus status
+    }
+    class Piece {
+	    +ColorState color : readonly
+	    +PieceState state
+	    +Position position
+    }
+    class IDice{
+        +int Value
+        +Roll() int              
+        +Reset() void   
+    }
+    class Dice {
+	    +int Value
+        +Roll() int              
+        +Reset() void     
+    }
+    class ActionType {
+        <<enum>>
+        ROLL_DICE
+        MOVE_PIECE
+        ENTER_BOARD
+        CAPTURE
+        PROMOTE_TO_GOAL
+    }
+    class CollisionResult {
+        <<enum>>
+        NONE
+        SAFE
+        CAPTURE
+    }
+    class PieceState {
+        <<enum>>
+        IN_HOME
+        ON_BOARD
+        IN_GOAL
+    }
+    class ColorState {
+        <<enum>>
+        RED
+        BLUE
+        GREEN
+        YELLOW
+    }
+    
+    class TurnResult {
+        <<enum>>
+        NEXT_PLAYER
+        SAME_PLAYER
+        SKIP
+        INVALID_MOVE
+        PIECE_CAPTURED
+    }
+    class PlayerStatus {
+        <<enum>>
+        ACTIVE
+        WAITING
+        SKIPPED
+        WON
+    }
+    
