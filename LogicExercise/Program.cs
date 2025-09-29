@@ -11,8 +11,24 @@ if (string.IsNullOrEmpty(numberString))
     return;
 }
 
-StringBuilder outputString = new();
+if (int.TryParse(numberString, out int n))
+{
+    Logic logic = new(n);
+    logic.AddRule(3, "foo");
+    logic.AddRule(4, "baz");
+    logic.AddRule(5, "bar");
+    logic.AddRule(7, "jazz");
+    logic.AddRule(9, "huzz");
+    logic.GenerateOutputString();
+    logic.PrintOutput();
+}
+else
+{
+    Console.WriteLine("Input must be number");
+}
 
+
+/*
 if (int.TryParse(numberString, out int n))
 {
     for (int i = 1; i <= n; i++)
@@ -57,6 +73,7 @@ else
 }
 
 Console.WriteLine(outputString);
+*/
 
 /* MY OLD LOGIC */
 /*
