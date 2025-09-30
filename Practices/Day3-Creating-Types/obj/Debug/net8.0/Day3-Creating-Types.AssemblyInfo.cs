@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Day3-Creating-Types")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7b2313d10ad9f211cddc29c705704ecda306f9d5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+925a82ce7b320dbd7841649f32ca7ac028c3f786")]
 [assembly: System.Reflection.AssemblyProductAttribute("Day3-Creating-Types")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Day3-Creating-Types")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
