@@ -27,7 +27,8 @@ Console.WriteLine(new string('-', 20));
 Console.ResetColor();
 IShape rectangle = new Rectangle(20.0D, 30.0D);
 IShape circle = new Circle(7);
-IShape triangle = new Triangle(8,16);
+IShape triangle = new Triangle(8, 16);
+Console.WriteLine(triangle.Area());
 
 AreaCalculator areaCalculator = new(logger);
 areaCalculator.CalculateTotalArea([rectangle, circle, triangle]);
