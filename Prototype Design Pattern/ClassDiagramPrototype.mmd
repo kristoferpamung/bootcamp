@@ -1,0 +1,19 @@
+classDiagram
+
+    IPrototype~T~ <|.. ConcretePrototype
+    PrototypeRegistry --> ConcretePrototype : uses
+    
+    class IPrototype~T~ {
+        +Clone() T
+    }
+    <<interface>> IPrototype
+
+    class ConcretePrototype {
+        +Clone() ConcretePrototype
+    }
+
+    class PrototypeRegistry {
+        -Dictionary~string, ConcretePrototype~ _prototypes
+        +Add(string key, ConcretePrototype concretePrototype)
+        +Create(string key) ConcretePrototype
+    }
