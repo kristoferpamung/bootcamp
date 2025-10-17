@@ -1,0 +1,88 @@
+classDiagram
+    class User {
+        +string Id
+        +string Department
+        +string ProfileImage
+        +DateTime CreatedAt
+        +DateTime DeletedAt
+    }
+    class Category {
+	    +int Id
+	    +string Name
+	    +string Description
+	    +DateTime CreatedAt
+	    +DateTime DeletedAt
+    }
+
+    class SubCategory {
+        +int Id
+        +Category CategoryId
+        +string Name
+        +string Description
+        +DateTime CreateAt
+        +DateTime DeletedAt
+    }
+
+    class ItemType {
+	    +int Id
+	    +string Name
+        +string Description
+    }
+
+    class ItemStatus {
+	    +int Id
+	    +string Name
+        +string Description
+
+    }
+
+    class RequestStatus {
+        +int Id
+        +string Name
+        +string Description
+    }
+
+    class Item {
+	    +int Id
+	    +string Code
+	    +string Name
+	    +string Description
+	    +int Quantity
+	    +string Image
+	    +int LowStockThreshold
+	    +SubCategory CategoriId
+	    +ItemType ItemTypeId
+        +ItemStatus Status
+        +string LocatedAt
+        +DateTime CreatedAt
+        +DateTime DeletedAt
+    }
+
+    class ItemRequest {
+        +int Id
+        +User UserId
+        +RequetStatus StatusId
+        +bool IsPendingPickUp
+        +DateTime RequestedAt
+        +DateTime RejectedAt
+        +DateTime ApprovedAt
+        +DateTime BorrowedAt
+        +DateTime DueDate
+        +string UserNote
+        +string AdminNote
+    }
+
+    class ItemRequestDetail {
+        +int Id
+        +ItemRequest ItemRequestId
+        +Item ItemId
+        +int Quantity
+    }
+
+    class Notification {
+        +int Id
+        +User UserId
+        +string Message 
+        +DateTime CreateAt
+        +bool IsRead
+    }
